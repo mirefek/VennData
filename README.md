@@ -1,5 +1,5 @@
 # VennData GUI
-Turn your data into a Venn diagrams!
+Turn your data into a Venn diagram!
 
 ![VennData Showcase](images/showcase.png)
 
