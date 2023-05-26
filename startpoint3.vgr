@@ -1,0 +1,52 @@
+n0 : e9 e6 e1 e3
+n0_data : {"pos": [1, -1]}
+n1 : e2 e0 e5 e9
+n1_data : {"pos": [0, 1]}
+n2 : e1 e10 e7 e4
+n2_data : {"pos": [0.086436767578125, -3.534971923828125]}
+n3 : e3 e4 e8 e2
+n3_data : {"pos": [-1, -1]}
+n4 : e5 e11 e10 e6
+n4_data : {"pos": [2.847236328125, 1.51513427734375]}
+n5 : e8 e7 e11 e0
+n5_data : {"pos": [-2.966666259765625, 1.438138427734375]}
+f0 : e11 e7 e10
+f1 : e5 e0 e11
+f1_classes : 1
+f2 : e8 e4 e7
+f2_classes : 3
+f3 : e6 e10 e1
+f3_classes : 2
+f4 : e3 e1 e4
+f4_classes : 2 3
+f5 : e2 e8 e0
+f5_classes : 1 3
+f6 : e9 e5 e6
+f6_classes : 1 2
+f7 : e9 e3 e2
+f7_classes : 1 2 3
+e0 : n5 f1 n1 f5
+e0_data : {"curvature": -0.49434855810018385}
+e1 : n0 f3 n2 f4
+e1_data : {"curvature": -0.44288486752418343}
+e2 : n3 f5 n1 f7
+e2_data : {"curvature": -0.38738953161145373}
+e3 : n0 f4 n3 f7
+e3_data : {"curvature": -0.303044437103539}
+e4 : n2 f2 n3 f4
+e4_data : {"curvature": -0.4083747197980019}
+e5 : n1 f1 n4 f6
+e5_data : {"curvature": -0.46693080190924086}
+e6 : n4 f3 n0 f6
+e6_data : {"curvature": -0.5342251376549241}
+e7 : n2 f0 n5 f2
+e7_data : {"curvature": -1.7143778379985997}
+e8 : n3 f2 n5 f5
+e8_data : {"curvature": -0.6190906046840694}
+e9 : n1 f6 n0 f7
+e9_data : {"curvature": -0.4209416596478688}
+e10 : n4 f0 n2 f3
+e10_data : {"curvature": -1.6734027531021631}
+e11 : n5 f0 n4 f1
+e11_data : {"curvature": -1.6132071708554547}
+metadata : {"view_scale": 44.99999999999999, "view_shift": [-0.15516370582863104, -0.491750035294898], "class_to_color": {"1": [1.0, 0.0, 0.0], "2": [0.0, 1.0, 0.0], "3": [0.0, 0.0, 1.0]}}

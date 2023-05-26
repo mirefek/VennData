@@ -1,0 +1,20 @@
+n0 : e3 e1 e0 e2
+n0_data : {"pos": [-0.0175830078125, -1.332108154296875]}
+n1 : e2 e0 e1 e3
+n1_data : {"pos": [0, 1]}
+f0 : e3 e1
+f1 : e3 e2
+f1_classes : 2
+f2 : e1 e0
+f2_classes : 1
+f3 : e2 e0
+f3_classes : 1 2
+e0 : n0 f2 n1 f3
+e0_data : {"curvature": -1.019359253341146}
+e1 : n0 f0 n1 f2
+e1_data : {"curvature": -2.1963863839208737}
+e2 : n0 f3 n1 f1
+e2_data : {"curvature": 1.1012829811332638}
+e3 : n1 f0 n0 f1
+e3_data : {"curvature": -2.131585932407034}
+metadata : {"view_scale": 68.58710562414265, "view_shift": [-0.17058486206054657, -0.2800100653076174], "class_to_color": {"1": [1.0, 0.0, 0.0], "2": [0.0, 0.0, 1.0]}}
