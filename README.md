@@ -1,5 +1,5 @@
 # VennData GUI
-Lightweight interactive tool for turning data into a proportional venn diagrams!
+Turn your data into a Venn diagrams!
 
 ![VennData Showcase](images/showcase.png)
 
