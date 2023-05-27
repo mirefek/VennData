@@ -29,7 +29,7 @@ and press the key 's'.
 To use the program to create a Venn diagram, you should go through the followinng steps:
 
 1. Prepare the data in the json format such as in this [here](example_stats.json). You can do it manually, or use some json exporter in your language of choice.
-2. (independently) Draw the basic skeleton graph, details about it are described in Section Graph Editing. You can also use prepared graphs for [2](startpoint2.vgr), [3](startpoint3.vgr), [4](startpoint4.vgr), [5](startpoint5.vgr) sets, and go directly to stpe 3. On the other hand, I recommend getting familiar with the graph editting controls before getting into more sophisticated setups with data included.
+2. (independently) Draw the basic skeleton graph, details about it are described in Section Graph Editing. You can also use prepared graphs for [2](startpoint2.vgr), [3](startpoint3.vgr), [4](startpoint4.vgr), [5](startpoint5.vgr) sets, and go directly to step 3. On the other hand, I recommend getting familiar with the graph editting controls before getting into more sophisticated setups with data included.
 3. Include data into the graph by running `./venndata.py -d data.json`.
 4. Try to manually approximatelly fit the graph to the data. The program will display green / red regions to signalize what should get smaller / bigger.
 5. Use the gradient descend optimizer to fit the data (almost) perfectly, and also get smooth looking picture. This is still an interactive procedure where you can correct possible mistakes the optimizer could do.
