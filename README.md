@@ -4,8 +4,9 @@ Turn your data into a Venn diagram!
 ![VennData Showcase](images/showcase.png)
 
 ## Features
-+ interactive graph manipulation
++ interactive planar graph manipulation
 + gradient descend optimization
++ edges in the shape of circle segments
 + png, svg export
 
 ## Dependencies
