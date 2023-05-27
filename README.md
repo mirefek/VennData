@@ -20,7 +20,7 @@ To try if everything is working, try to run
 ```
 or, to check if pytorch also works, run:
 ```
-./venndata.py startpoint5.vgr -d example_stats.json
+./venndata.py startpoint5.vgr -d example_stats.
 ```
 and press the key 's'.
 
@@ -67,6 +67,8 @@ Press 'a' to analyze the graph validity (with output in the terminal), in partic
 2. If there is a node with incorrectly ordered edges (geometry not matching the topology). In that case graph cursor appears at the incorrect position..
 
 ## Fitting graph to data
+
+Prepare a json file `data_file.json` like [this example](example_stats.json). Each datapoint corresponds to a single combination of classes, for example if there are five classes, the datapoint with classes `[2,3,4]` corresponds to the intersection of classes 2,3,4 minus the union of classes 1,5. The number of classes can be chosen, and the empty combination `[]` do not need to occur (it only disables the option of showing total area around).
 
 After preparing a graph, save it (F2), close the app (Escape), and open the app again with an argument `-d data_file.json`. You can also try this right away by running.
 ```
