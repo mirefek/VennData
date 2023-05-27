@@ -69,7 +69,7 @@ Press 'a' to analyze the graph validity (with output in the terminal), in partic
 
 ## Fitting graph to data
 
-Prepare a json file `data_file.json` like [this example](example_stats.json). Each datapoint corresponds to a single combination of classes, for example if there are five classes, the datapoint with classes `[2,3,4]` corresponds to the intersection of classes 2,3,4 minus the union of classes 1,5. The number of classes can be chosen, and the empty combination `[]` do not need to occur (it only disables the option of showing total area around).
+Prepare a json file `data_file.json` like [this example](example_stats.json). Each datapoint corresponds to a single combination of classes, for example if there are five classes, the datapoint with classes `[2,3,4]` corresponds to the intersection of classes 2,3,4 minus the union of classes 1,5. The number of classes can be chosen, and the empty combination `[]` does not need to occur (if it doesn't, only the option of showing total area around gets disabled).
 
 After preparing a graph, save it (F2), close the app (Escape), and open the app again with an argument `-d data_file.json`. You can also try this right away by running.
 ```
