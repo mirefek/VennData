@@ -20,7 +20,7 @@ To try if the app is working, try to run
 ```
 to check if also pytorch is supported, try:
 ```
-./venndata.py startpoint5.vgr -d example_stats.
+./venndata.py startpoint5.vgr -d example_stats.json
 ```
 and press the key 's'.
 
