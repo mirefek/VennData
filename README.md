@@ -14,11 +14,11 @@ Turn your data into a Venn diagram!
 + [numpy](https://pypi.org/project/numpy/) (on Windows: "pacman -S mingw-w64-x86_64-python3-numpy")
 + [pytorch](https://pytorch.org/)
 
-To try if everything is working, try to run
+To try if the app is working, try to run
 ```
 ./venndata.py
 ```
-or, to check if pytorch also works, run:
+to check if also pytorch is supported, try:
 ```
 ./venndata.py startpoint5.vgr -d example_stats.
 ```
