@@ -100,7 +100,8 @@ If the outer space (no classes) had a value in the data, you can display this wi
 
 + *Escape*: Exit the App
 + *'-'*, *'='*: change color sensitivity to area error
-+ *Space*: Turn off the cursor / face selection
++ *Space*: Turn off the cursor / face selection / auto optimizer
++ *'1'*, *'2'*, ...: Select classes
 + *F2*: Save to file
 + *F3*: Load form file
 + *'s'* / *'S'*: Gradient descent step
