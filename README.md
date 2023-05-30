@@ -104,6 +104,7 @@ If the outer space (no classes) had a value in the data, you can display this wi
 + *'1'*, *'2'*, ...: Select classes
 + *F2*: Save to file
 + *F3*: Load form file
++ *'.'*, *'?'*, *arrows*: Navigate graph cursor
 + *'s'* / *'S'*: Gradient descent step
 + *'o'* / *'O'*: Repeat descent steps
 + *'a'*: Analyze graph correctness
