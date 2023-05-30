@@ -16,6 +16,11 @@ from gui_tool import *
 from color_picker import ColorPicker
 from legend import Legend
 
+def remove_prefix(text, prefix):
+    if text.startswith(prefix):
+        return text[len(prefix):]
+    return text
+
 class VennDataGui(Gtk.Window):
 
     def __init__(self, graph, fname, optimizer_step, win_size = (800, 600)):
@@ -110,7 +115,7 @@ class VennDataGui(Gtk.Window):
         keyval = e.keyval
         keyval_name = Gdk.keyval_name(keyval)
         # do not distinguish standard and numlock key variants
-        keyval_name = keyval_name.removeprefix("KP_")
+        keyval_name = remove_prefix(keyval_name, "KP_")
         # print("Press:", keyval_name)
         if keyval_name == "Escape":
             Gtk.main_quit()
