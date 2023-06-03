@@ -35,17 +35,14 @@ class BasicTool(Tool):
             face = self.gui.get_pixel_face(pixel)
             if face is not None:
                 if gui.cursor.face is not None:
-                    def click_f():
+                    def click_f(released = True):
                         gui.cursor.node_or_face = face
                         gui.cursor.edge = face.edges[0]
                         gui.darea.queue_draw()
                 else:
-                    def click_f():
-                        if gui.active_class in face.classes:
-                            face.remove_class(gui.active_class)
-                        else:
-                            face.add_class(gui.active_class)
-                        gui.darea.queue_draw()
+                    def click_f(released = True):
+                        face_select = FaceSelect(self.gui, face)
+                        if not released: self.gui.tool = face_select
 
         if node is not None:
             if click_f is None:
@@ -67,7 +64,7 @@ class BasicTool(Tool):
                 f_on_release = click_f,
             )
         elif click_f != None:
-            click_f()
+            click_f(released = False)
 
     def on_right_click(self, pixel):
         gui = self.gui
@@ -97,6 +94,27 @@ class BasicTool(Tool):
                     gui.darea.queue_draw()
                 else:
                     print("cannot break this edge")
+
+class FaceSelect(Tool):
+    def __init__(self, gui, face):
+        self.gui = gui
+        self.add = gui.active_class not in face.classes
+        self.last_face = None
+        self.select(face)
+
+    def on_motion(self, pixel):
+        face = self.gui.get_pixel_face(pixel)
+        if face is not None: self.select(face)
+    def on_release(self, pixel):
+        self.gui.tool = self.gui.basic_tool
+
+    def select(self, face):
+        if face is None: return
+        if face == self.last_face: return
+        self.last_face = face
+        if self.add: success = face.add_class(self.gui.active_class)
+        else: success = face.remove_class(self.gui.active_class)
+        if success: self.gui.darea.queue_draw()
 
 class MoveTool(Tool):
     def __init__(self, gui, node, pixel = None):

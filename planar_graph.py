@@ -280,15 +280,17 @@ class Face:
         self.graph.classes_to_faces[self.classes].add(self)
 
     def add_class(self, c):
-        if c in self.classes: return
+        if c in self.classes: return False
         self._disconnect_from_classes()
         self.classes = self.classes | frozenset([c])
         self._connect_to_classes()
+        return True
     def remove_class(self, c):
-        if c not in self.classes: return
+        if c not in self.classes: return False
         self._disconnect_from_classes()
         self.classes = self.classes - frozenset([c])
         self._connect_to_classes()
+        return True
     def set_classes(self, classes):
         self._disconnect_from_classes()
         self.classes = frozenset(classes)
