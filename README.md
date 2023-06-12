@@ -81,7 +81,7 @@ I recommend first move the graph slightly to get an abstract idea of how the out
 
 After removing all blue region, you can press 'a' again to check whether there are exactly the correct class combinations in the picture.
 
-When the picture is getting into a shape, you can automate the graph tweeking process by pressing 's' (makes a gradient descent step towards the correct shapes), or Shift-S (also tries to minimize the edge lengths). However, these steps are not guaranteed to preserve planarity, so can be good be careful with them (at least at the beginning). When these optimizer tend to like overlapping, two edges a bit, I find it useful to just merge the two edges 
+When the picture is getting into a shape, you can automate the graph tweeking process by pressing 's' (makes a gradient descent step towards the correct shapes), or Shift-S (also tries to minimize the edge lengths). However, these steps are not guaranteed to preserve planarity, so be careful with them (at least at the beginning). When these optimizer tend to like overlapping two edges a bit, I find it useful to just merge the two edges 
 
 ![Gluing an overlapping edge](images/glue-edge.png)
 
