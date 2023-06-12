@@ -75,7 +75,7 @@ After preparing a graph, save it (F2), close the app (Escape), and open the app 
 ```
 ./venndata.py startpoint5.vgr -d example_stats.json
 ```
-The graph will be colored with red / green / blue. Green regions are too big, red regions too small, and blue regions should not exist (there is zero size as a datapoint). It is also possible to reorder the labels in the legend to find a more convenient initial setup.
+The graph will be colored with red / green / blue. Green regions are too big, red regions too small, and blue regions should not exist (there is zero size as a datapoint). It is also possible to reorder the labels in the legend (using drag & drop) to find a more convenient initial setup.
 
 I recommend first move the graph slightly to get an abstract idea of how the outcome could look like, and also to remove the blue regions via standard graph editing operations. I agree that the graph editing operations can be a bit unpractical, and they can break the class assignment, so it helps after such an modification to check whether the classes are correct by quickly going through them (1,2,..), or with the Venn view 'v'.
 
