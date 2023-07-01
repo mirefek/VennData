@@ -492,8 +492,8 @@ class VennDataGui(Gtk.Window):
         return False
     def optimizer_make_step(self, area_only):
         if not self.optimizer.connected: self.optimizer.connect(self.graph)
-        if area_only: self.optimizer.gradient_step(self.optimizer_step)
-        else: self.optimizer.gradient_step_min_len(self.optimizer_step)
+        if area_only: self.optimizer.gradient_step(step = self.optimizer_step)
+        else: self.optimizer.gradient_step_min_len(step = self.optimizer_step)
         self.darea.queue_draw()
 
     def analyze_graph(self):
