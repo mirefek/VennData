@@ -23,7 +23,7 @@ def remove_prefix(text, prefix):
 
 class VennDataGui(Gtk.Window):
 
-    def __init__(self, graph, fname, optimizer_step, win_size = (800, 600)):
+    def __init__(self, graph, fname, optimizer_step, optimizer_coef, win_size = (800, 600)):
         super().__init__()
         self.color_picker = None
         self.mb_grasp = None
@@ -38,6 +38,7 @@ class VennDataGui(Gtk.Window):
         self.total_area_style = None
         self.legend = Legend(self)
         self.optimizer_step = optimizer_step
+        self.optimizer_coef = optimizer_coef
 
         self.basic_tool = BasicTool(self)
         self.tool = self.basic_tool
@@ -493,7 +494,10 @@ class VennDataGui(Gtk.Window):
     def optimizer_make_step(self, area_only):
         if not self.optimizer.connected: self.optimizer.connect(self.graph)
         if area_only: self.optimizer.gradient_step(step = self.optimizer_step)
-        else: self.optimizer.gradient_step_min_len(step = self.optimizer_step)
+        else: self.optimizer.gradient_step_min_len(
+                step = self.optimizer_step,
+                coef = self.optimizer_coef,
+        )
         self.darea.queue_draw()
 
     def analyze_graph(self):
@@ -575,7 +579,9 @@ if __name__ == "__main__":
     parser.add_argument("-d", "--data", default = None, type = str,
                         help="filename for json statistics created with venn.py")
     parser.add_argument("-s", "--step", default = None, type = float,
-                        help="step size for the optimizer (automatically enables it), default: 0.01")
+                        help="step size for the optimizer, default: 0.01")
+    parser.add_argument("-c", "--coef", default = None, type = float,
+                        help="coefficient between length and area loss for the optimizer, default: 5.0")
     args = parser.parse_args()
 
     graph = PlanarGraph()
@@ -592,5 +598,6 @@ if __name__ == "__main__":
         graph = graph,
         fname = args.filename,
         optimizer_step = args.step,
+        optimizer_coef = args.coef,
     )
     Gtk.main()
