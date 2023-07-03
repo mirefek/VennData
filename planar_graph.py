@@ -35,12 +35,11 @@ class Node:
     @property
     def faces(self):
         return [edge.cw_face(self) for edge in self.edges]
-    @property
-    def angles(self):
+    def angles(self, m = math):
         res = []
         for edge in self.edges:
             p0,p1,curvature = edge.geometry_from(self)
-            res.append(vector_direction(p0, p1) - curvature)
+            res.append(vector_direction(p0, p1, m=m) - curvature)
         return res
     @property
     def pos(self):
@@ -56,14 +55,14 @@ class Node:
     def face_index_by_pos(self, pos):
         if len(self.edges) < 2: return 0
         main_angle = vector_direction(self.pos, pos)
-        for i,(a1,a2) in enumerate(cyclic_pairs(self.angles)):
+        for i,(a1,a2) in enumerate(cyclic_pairs(self.angles())):
             if (main_angle-a2)%(2*math.pi) <= (a1-a2)%(2*math.pi): return i
 
         return None # comething is weird, normally should not happen, maybe with some weird rounding error
 
     def find_wrong_edge_order(self):
         if len(self.edges) <= 2: return None
-        angles = self.angles
+        angles = self.angles()
         for e,(a0,a1,a2) in zip(self.edges, cyclic_triples(angles)):
             if (a0-a2)%(2*math.pi) < (a1-a2)%(2*math.pi):
                 return e
@@ -135,6 +134,10 @@ class Edge:
     def curvature(self, curvature):
         self.data["curvature"] = curvature
 
+    @property
+    def classes(self):
+        f0,f1 = self.faces
+        return f0.classes ^ f1.classes
     @property
     def endpoints(self):
         return [node.pos for node in self.nodes]

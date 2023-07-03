@@ -1,5 +1,6 @@
 import torch
 from arc_geometry import *
+from collections import defaultdict
 
 class PlanarGraphOptimizer:
     def __init__(self, default_step = 0.01, default_coef = 5.0):
@@ -69,6 +70,19 @@ class PlanarGraphOptimizer:
             if not classes: continue
             res += len(classes)*edge.length(m = torch)
         return res
+
+    def smoothness_loss(self):
+        loss = torch.as_tensor(0.0)
+        for node in self.nodes:
+            classes_to_angles = defaultdict(list)
+            for edge, angle in zip(node.edges, node.angles(m = torch)):
+                classes_to_angles[edge.classes].append(angle)
+            for angles in classes_to_angles.values():
+                if len(angles) != 2: continue
+                a0,a1 = angles
+                cur_loss = ((a0-a1) % (2*math.pi) - math.pi)**2
+                loss = loss + cur_loss
+        return loss
 
     def get_numerical_gradient(self, f, step = 0.01):
         res = []
@@ -144,3 +158,6 @@ class PlanarGraphOptimizer:
 
     def gradient_step_min_len(self, *args, **kwargs):
         self.gradient_step(self.total_length, *args, **kwargs)
+
+    def gradient_step_smooth(self, *args, **kwargs):
+        self.gradient_step(self.smoothness_loss, *args, **kwargs)

@@ -408,8 +408,7 @@ class VennDataGui(Gtk.Window):
 
         cr.set_line_width(3)
         for edge in self.graph.edges:
-            f0,f1 = edge.faces
-            classes = f0.classes ^ f1.classes
+            classes = edge.classes
             if len(classes) == 0:
                 # print("Warning: an edge with no classes")
                 cr.set_source_rgb(0,0,0)
